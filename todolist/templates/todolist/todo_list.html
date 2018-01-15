@@ -1,11 +1,33 @@
-<html>
-    <head>
-        <title>Git er' Done</title>
-    </head>
-    <body>
-        <h1>Heyyy</h1>
+{% extends 'todolist/base.html' %}
+ {% block content %} 
+    <span>
+        <form action="new_todo" methods="POST">
+            <label id="taskLabel">What's Next:</label>
+                <input type="text" name="new_todo" placeholder="Greatness..."/>
+                {% csrf_token %}
+                {{form}}
+            <input type="submit" value="Add Task"/>
+        </form>
+    </span>
+   
+    <hr>
 
+    {% for item in listitem %}
+        <ul>
+            <li>{{item}}</li>
+        </ul>
+    {% endfor %}
+         
+        {% comment %}
+            <footer>
+            <a href={ % url 'post_detail' pk=post.pk %} ">{{pagenumber}}
+            </footer> 
+        
+                 for=""
+             action="{% url '' %}"
+        {% endcomment %}
+  
 
+ {% endblock %}
 
-    </body>
-</html>
+ {% comment %} as_ul = renders the form as a series of <li> tags with each li containing one field {% endcomment %}

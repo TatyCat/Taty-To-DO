@@ -2,3 +2,7 @@ body {
     background-color: #483D8B;
     color: white;
 }
+
+#taskLabel {
+    font-size: 21px;
+}
